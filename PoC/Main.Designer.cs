@@ -30,10 +30,10 @@
         {
             this.pnlWebBrowser = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblUserCountVal = new System.Windows.Forms.Label();
             this.lblUserCount = new System.Windows.Forms.Label();
             this.btnListUsers = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
-            this.lblUserCountVal = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,12 +55,21 @@
             this.panel2.Size = new System.Drawing.Size(188, 417);
             this.panel2.TabIndex = 1;
             // 
+            // lblUserCountVal
+            // 
+            this.lblUserCountVal.AutoSize = true;
+            this.lblUserCountVal.Location = new System.Drawing.Point(89, 397);
+            this.lblUserCountVal.Name = "lblUserCountVal";
+            this.lblUserCountVal.Size = new System.Drawing.Size(15, 16);
+            this.lblUserCountVal.TabIndex = 3;
+            this.lblUserCountVal.Text = "0";
+            // 
             // lblUserCount
             // 
             this.lblUserCount.AutoSize = true;
             this.lblUserCount.Location = new System.Drawing.Point(4, 397);
             this.lblUserCount.Name = "lblUserCount";
-            this.lblUserCount.Size = new System.Drawing.Size(79, 17);
+            this.lblUserCount.Size = new System.Drawing.Size(74, 16);
             this.lblUserCount.TabIndex = 2;
             this.lblUserCount.Text = "User Count";
             // 
@@ -81,15 +90,6 @@
             this.btnAddUser.TabIndex = 0;
             this.btnAddUser.Text = "Add User";
             this.btnAddUser.UseVisualStyleBackColor = true;
-            // 
-            // lblUserCountVal
-            // 
-            this.lblUserCountVal.AutoSize = true;
-            this.lblUserCountVal.Location = new System.Drawing.Point(89, 397);
-            this.lblUserCountVal.Name = "lblUserCountVal";
-            this.lblUserCountVal.Size = new System.Drawing.Size(16, 17);
-            this.lblUserCountVal.TabIndex = 3;
-            this.lblUserCountVal.Text = "0";
             // 
             // Main
             // 

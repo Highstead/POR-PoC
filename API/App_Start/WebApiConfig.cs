@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using System.Web.Routing;
 
 namespace POR.API
 {
@@ -10,12 +11,21 @@ namespace POR.API
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+            /*
 
+
+            /*  This would be true if we were running a straight WebAPI project.  But we've gone 
+             * separated our controllers. */
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            /*
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "{controller}/{id}",
+                defaults: new {id = RouteParameter.Optional});*/
         }
     }
 }

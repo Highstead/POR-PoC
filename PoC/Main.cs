@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using CefSharp;
+﻿using CefSharp;
 using CefSharp.WinForms;
+using System;
+using System.IO;
+using System.Windows.Forms;
 
 namespace PoR.PoC
 {
     public partial class Main : Form
     {
-        private ChromiumWebBrowser m_chromeBrowser = null;
-
+        private ChromiumWebBrowser Browser = null;
         public static string GetAppLocation()
         {
             return AppDomain.CurrentDomain.BaseDirectory;
@@ -25,6 +17,15 @@ namespace PoR.PoC
         public Main()
         {
             InitializeComponent();
+
+            var settings = new CefSettings();
+            settings.RegisterScheme(new CefCustomScheme()
+            {
+                SchemeName = SchemeFactory.SchemeName,
+                SchemeHandlerFactory = new SchemeFactory()
+            });
+            Cef.Initialize(settings);
+            // Handlers
             Load += MainForm_Load;
             Closing += MainForm_Closing;
             this.btnAddUser.Click += addUser_Click;
@@ -38,25 +39,34 @@ namespace PoR.PoC
 
         void MainForm_Load(object sender, EventArgs e)
         {
-            Cef.Initialize();
-            var myBrowser = new ChromiumWebBrowser("http://www.maps.google.com");
-            this.pnlWebBrowser.Controls.Add(myBrowser);
+            var page = string.Format("{0}wwwroot\\html\\index.html", GetAppLocation());
+            var outpath = convertToChromePath(page);
+            Browser = new ChromiumWebBrowser(outpath);
+            this.pnlWebBrowser.Controls.Add(Browser);
         }
 
         private void addUser_Click(object sender, EventArgs e)
         {
             var page = string.Format("{0}wwwroot\\html\\addUser.html", GetAppLocation());
-            using (var fs = new FileStream(page, FileMode.Open))
-            {
-                var fsByte = fs.ReadByte();
-            }
-            m_chromeBrowser.Load(page);
+            var outpath = convertToChromePath(page);
+            Browser.Load(outpath);
+            
         }
 
+        
         private void listUser_Click(object sender, EventArgs e)
         {
             var page = string.Format("{0}wwwroot\\html\\listUsers.html", GetAppLocation());
-            m_chromeBrowser.Load(page);
+            var outpath = convertToChromePath(page);
+            Browser.Load(outpath);
+        }
+
+
+        private string convertToChromePath(string path)
+        {
+            var output = "file:///";
+            output += path.Replace("\\", "/");
+            return output;
         }
     }
 }

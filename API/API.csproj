@@ -238,10 +238,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\API\ItemInventory.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ItemsController.cs" />
+    <Compile Include="Controllers\viewControllers\AccountController.cs" />
+    <Compile Include="Controllers\api\ItemInventoryController.cs" />
+    <Compile Include="Controllers\viewControllers\HomeController.cs" />
+    <Compile Include="Controllers\viewControllers\ItemsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -386,6 +386,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{6d504a7d-dea0-44f3-bf29-788a4395a394}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{c8fd68df-c1e8-4f8e-8d03-e705ed4081d4}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

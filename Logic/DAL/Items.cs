@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace PoR.Logic.DAL
@@ -51,6 +52,16 @@ namespace PoR.Logic.DAL
                            select itm;
 
                 return item.First();
+            }
+        }
+
+        public List<Item> GetItems()
+        {
+            using (var dbContext = new PoREntities(ConnectionString))
+            {
+                var items = from itm in dbContext.Items select itm;
+
+                return items.ToList();
             }
         }
     }
