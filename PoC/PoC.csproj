@@ -131,19 +131,19 @@
     <Content Include="wwwroot\css\ui-grid.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="wwwroot\html\addUser.html">
+    <Content Include="wwwroot\html\addItem.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="wwwroot\html\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="wwwroot\html\addUsers.js">
+    <Content Include="wwwroot\html\addItem.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="wwwroot\html\listUsers.html">
+    <Content Include="wwwroot\html\listItems.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="wwwroot\html\listUsers.js">
+    <Content Include="wwwroot\html\listItems.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="wwwroot\html\success.html">

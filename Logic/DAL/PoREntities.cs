@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection;
 
 namespace PoR.Logic.DAL
 {
@@ -18,6 +19,7 @@ namespace PoR.Logic.DAL
         public PoREntities()
             : base("name=PoREntities")
         {
+            Database.SetInitializer<PoREntities>(new DropCreateDatabaseAlways<PoREntities>());
         }
 
         public PoREntities(string connectionString) : base(connectionString) { }

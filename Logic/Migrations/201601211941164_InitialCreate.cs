@@ -15,7 +15,7 @@ namespace Logic.Migrations
                         StartTime = c.DateTime(nullable: false),
                         EndTime = c.DateTime(nullable: false),
                         Quantity = c.Int(nullable: false),
-                        CreatedDateUtc = c.DateTime(nullable: false, defaultValueSql: "GETUTCDATE()"),
+                        CreatedDateUtc = c.DateTime(nullable: false, defaultValueSql: "GETDATE()"),
                         Client_ClientId = c.Int(),
                         Item_ItemId = c.Int(),
                     })
@@ -43,7 +43,7 @@ namespace Logic.Migrations
                         Name = c.String(),
                         Category = c.String(),
                         Quantity = c.Int(nullable: false),
-                        CreatedDateUtc = c.DateTime(nullable: false, defaultValueSql: "GETUTCDATE()"),
+                        CreatedDateUtc = c.DateTime(nullable: false, defaultValueSql: "GETDATE()"),
                     })
                 .PrimaryKey(t => t.ItemId);
             

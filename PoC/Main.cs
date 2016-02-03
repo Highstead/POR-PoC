@@ -19,11 +19,13 @@ namespace PoR.PoC
             InitializeComponent();
 
             var settings = new CefSettings();
+           
+            /*var settings = new CefSettings();
             settings.RegisterScheme(new CefCustomScheme()
             {
                 SchemeName = SchemeFactory.SchemeName,
                 SchemeHandlerFactory = new SchemeFactory()
-            });
+            });*/
             Cef.Initialize(settings);
             // Handlers
             Load += MainForm_Load;
@@ -47,7 +49,7 @@ namespace PoR.PoC
 
         private void addUser_Click(object sender, EventArgs e)
         {
-            var page = string.Format("{0}wwwroot\\html\\addUser.html", GetAppLocation());
+            var page = string.Format("{0}wwwroot\\html\\addItem.html", GetAppLocation());
             var outpath = convertToChromePath(page);
             Browser.Load(outpath);
             
@@ -56,7 +58,7 @@ namespace PoR.PoC
         
         private void listUser_Click(object sender, EventArgs e)
         {
-            var page = string.Format("{0}wwwroot\\html\\listUsers.html", GetAppLocation());
+            var page = string.Format("{0}wwwroot\\html\\listItems.html", GetAppLocation());
             var outpath = convertToChromePath(page);
             Browser.Load(outpath);
         }
