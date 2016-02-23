@@ -120,30 +120,30 @@
     <th class="tg-yw4l">Value</th>
   </tr>
   <tr>
-    <td class="tg-6k2t"><label for="Name">Item Name</label></td>
-    <td class="tg-6k2t"><input type="text" class="text-clean" id="Name" name="Name" value="Steel Chair" /></td>
+      <td class="tg-6k2t"><label for="Name">Item Name</label></td>
+      <td class="tg-6k2t"><input type="text" class="text-clean" id="Name" name="Name" value="Steel Chair" /></td>
   </tr>
   <tr>
-    <td class="tg-yw4l"><label for="Category">Item Category</label></td>
-    <td class="tg-yw4l"><input type="text" class="text-clean" id="Category" name="Category" value="Seating" /></td>
+      <td class="tg-yw4l"><label for="Category">Item Category</label></td>
+      <td class="tg-yw4l"><input type="text" class="text-clean" id="Category" name="Category" value="Seating" /></td>
   </tr>
     <tr>
-      <td class="tg-yw4l"><label for="Quantity">Item Category</label></td>
-      <td class="tg-yw4l"><input type="text" class="text-clean" id="Quantity" name="Quantity" value="Seating" /></td>
+        <td class="tg-6k2t"><label for="Quantity">Item Quantity</label></td>
+        <td class="tg-6k2t"><input type="text" class="text-clean" id="Quantity" name="Quantity" value="20" /></td>
     </tr>
   <tr>
-    <td class="tg-6k2t halign-right" colspan="2">
-        <button class="myButton" onClick="goHome()">Cancel</button>
-        <button class="myButton" type="submit">Add Item</button>
-    </td>
+      <td class="tg-yw4l halign-right" colspan="2">
+          <button class="myButton" onclick="goHome()">Cancel</button>
+          <button class="myButton" type="submit">Add Item</button>
+      </td>
   </tr>
 </table></div>
 </form>
 
     <script type="text/javascript" src="../lib/jquery.min.js"></script>
-    <script type="text/javascript" src="../lib/angular.min.js"></script>
     <script type="text/javascript">
         $("#addItemForm").submit(function (e) {
+
             e.preventDefault();
             var data = {};
             for (var i = 0, ii = addItemForm.length; i < ii; ++i) {
@@ -159,19 +159,19 @@
         function addData(data) {
             $.ajax({
                 type: "POST",
-                url: "http://localhost/api/iteminventory",
+                url: "http://localhost/api/ItemInventory",
                 data: JSON.stringify(data),
                 contentType: "application/json; charset=utf-8",
                 crossDomain: true,
                 dataType: "json",
                 success: function (successData, status, jqXHR) {
-                    alert("success");// write success in " "
+                    winformObj.successAdd();
+                    window.location.href = "success.html";
                 },
 
                 error: function (jqXHR, status) {
                     // error handler
                     console.log(jqXHR);
-                    alert('fail' + status.code);
                 }
             });
             return false;

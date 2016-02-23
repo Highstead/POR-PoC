@@ -59,5 +59,32 @@ namespace PoR.PoC.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add User.
+        /// </summary>
+        internal static string AddUser {
+            get {
+                return ResourceManager.GetString("AddUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to List Users.
+        /// </summary>
+        internal static string ListUsers {
+            get {
+                return ResourceManager.GetString("ListUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Count.
+        /// </summary>
+        internal static string UserCount {
+            get {
+                return ResourceManager.GetString("UserCount", resourceCulture);
+            }
+        }
     }
 }
